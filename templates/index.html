@@ -67,6 +67,8 @@
           </button>
         </li>
       </ul>
+
+      <!-- Tab Content -->
       <div class="tab-content" id="pills-tabContent">
         <div
           class="tab-pane fade show active"
@@ -75,6 +77,8 @@
           aria-labelledby="pills-allPost-tab"
         >
             <!-- Post card-->
+            {% for post in posts %}
+
             <div class="mainContent__card">
               <div class="mainContent__cardimg">
                 <a href="templates/detail.html">
@@ -84,11 +88,11 @@
               <div class="mainContent__cardBottom">
                 <div class="mainContent__cardTitle">
                   <a href="templates/detail.html">
-                    <p>Introduction to Web technologies</p>
+                    <p>{{ post.title }}</p>
                   </a>
                 </div>
                 <div id="date-posted">
-                  <p id="date">24/02/2022</p>
+                  <p id="date">{{ post.date_created.date() }}</p>
                   <p id="views">
                     <span>
                       <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
@@ -96,53 +100,10 @@
                 </div>  
               </div>
             </div>
+
+            {% endfor %}
             <!--  Post card ends -->
-            <!--- Post card -->
-            <div class="mainContent__card">
-              <div class="mainContent__cardimg">
-                <a href="templates/detail.html">
-                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
-                </a>
-              </div>
-              <div class="mainContent__cardBottom">
-                <div class="mainContent__cardTitle">
-                  <a href="templates/detail.html">
-                    <p>Introduction to Web technologies</p>
-                  </a>
-                </div>
-                <div id="date-posted">
-                  <p id="date">24/02/2022</p>
-                  <p id="views">
-                    <span>
-                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
-                    </span>23</p>
-                </div>  
-              </div>
-            </div>
-            <!-- Post card ends ->
-            <!- Post card -->
-            <div class="mainContent__card">
-              <div class="mainContent__cardimg">
-                <a href="templates/detail.html">
-                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
-                </a>
-              </div>
-              <div class="mainContent__cardBottom">
-                <div class="mainContent__cardTitle">
-                  <a href="templates/detail.html">
-                    <p>Introduction to Web technologies</p>
-                  </a>
-                </div>
-                <div id="date-posted">
-                  <p id="date">24/02/2022</p>
-                  <p id="views">
-                    <span>
-                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
-                    </span>23</p>
-                </div>  
-              </div>
-            </div>
-            <!-- Post card ends -->
+            
           
         </div>
         <div
@@ -151,7 +112,34 @@
           role="tabpanel"
           aria-labelledby="pills-webDev-tab"
         >
-          Web Development
+        <!-- Post card-->
+        
+            {% for post in categories[1].posts %}
+
+            <div class="mainContent__card">
+              <div class="mainContent__cardimg">
+                <a href="templates/detail.html">
+                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
+                </a>
+              </div>
+              <div class="mainContent__cardBottom">
+                <div class="mainContent__cardTitle">
+                  <a href="templates/detail.html">
+                    <p>{{ post.title }}</p>
+                  </a>
+                </div>
+                <div id="date-posted">
+                  <p id="date">{{ post.date_created.date() }}</p>
+                  <p id="views">
+                    <span>
+                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
+                    </span>23</p>
+                </div>  
+              </div>
+            </div>
+
+            {% endfor %}
+        <!--  Post card ends -->  
         </div>
         <div
           class="tab-pane fade"
@@ -159,9 +147,37 @@
           role="tabpanel"
           aria-labelledby="pills-techTrends-tab"
         >
-          Tech Trends
+          <!-- Post card-->
+            {% for post in categories[2].posts %}
+
+            <div class="mainContent__card">
+              <div class="mainContent__cardimg">
+                <a href="templates/detail.html">
+                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
+                </a>
+              </div>
+              <div class="mainContent__cardBottom">
+                <div class="mainContent__cardTitle">
+                  <a href="templates/detail.html">
+                    <p>{{ post.title }}</p>
+                  </a>
+                </div>
+                <div id="date-posted">
+                  <p id="date">{{ post.date_created.date() }}</p>
+                  <p id="views">
+                    <span>
+                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
+                    </span>23</p>
+                </div>  
+              </div>
+            </div>
+
+            {% endfor %}
+            <!--  Post card ends -->
         </div>
       </div>
+      <!-- Content area ends -->
+      
     </main>
   </div>
 

@@ -37,7 +37,7 @@ class Post(db.Model):
 def home():
     all_post = Post.query.all()
     categories = Category.query.all()
-    return render_template('index.html', post=all_post, categories=categories)
+    return render_template('index.html', posts=all_post, categories=categories)
 
 @app.route('/new-post',methods=['GET', 'POST'])
 def newPost():

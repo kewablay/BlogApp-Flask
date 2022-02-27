@@ -161,8 +161,13 @@ nav {
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: var(--mg-2);
+  transition: .3s ease;
 }
-
+.fade:not(.show) {
+    opacity: 0;
+    /* display: none !important; */
+    height: 0;
+}
 /* .nav-link{
   background: lightgrey !important;
   color: #000000a6;
