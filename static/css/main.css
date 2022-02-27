@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 100%;
+  /* background: #f9fafb; */
+}
+
+:root {
+  /* ----- custom color variables ----- */
+  --clr-background: whitesmoke;
+  --clr-text-alt: rgb(82, 82, 82);
+  --clr-primary: #0d6efd;
+  --clr-primary-light: lightblue;
+  --clr-secondary: #57b99e;
+  --clr-secondary-light: lightcoral;
+
+  /* --- font-sizes variables ---- */
+  --font-large: 50px;
+  --font-medium: 30px;
+  --font-small: 20px;
+  --font-smaller: 15px;
+
+  /* ------ margins -------*/
+  --mg-0: 1rem;
+  --mg-1: 1.5rem;
+  --mg-2: 2rem;
+  --mg-large: 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* ---- helper classes---- */
+.title {
+  font-size: var(--font-medium);
+  font-weight: 600;
+  color: #000000c9;
+  margin-bottom: var(--mg-1);
+}
+.bg--primary {
+  color: white;
+  background: var(--clr-primary);
+}
+/* .wrapper {
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+} */
+
+/* ----- nabar styling ----- */
+nav {
+  box-shadow: 0px 11px 14px 2px #cfcfcf36;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 100%;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--mg-large);
+  padding: 1rem 0;
+}
+.nav__brand  a {
+  color: black;
+  font-size: var(--font-medium);
+  font-weight: 600;
+  cursor: pointer;
+}
+.nav .nav__links {
+  display: flex;
+}
+.nav__link ~ .nav__link {
+  margin-left: 1.5rem;
+}
+.nav__link {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  text-transform: capitalize;
+  color: var(--clr-text-alt);
+}
+.nav__link:hover {
+  border: 1px solid var(--clr-primary);
+  color: var(--clr-primary);
+}
+.nav__link:active {
+  background: var(--clr-primary);
+  color: white;
+}
+/* ------- navbar styling ends ---- */
+
+/* ------ Banner section styles ----- */
+.banner__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+.banner__intro h3 {
+  font-size: var(--font-large);
+  text-transform: capitalize;
+  line-height: 60px;
+  font-weight: 700;
+}
+.banner__intro p {
+  font-size: var(--font-small);
+  color: var(--clr-text-alt);
+  font-weight: 500;
+}
+.banner__intro a {
+  padding: 0.6rem 0.9rem;
+  border-radius: 5px;
+}
+.banner__intro a:hover{
+  color: white;
+  
+}
+.banner__bg {
+  width: 55rem;
+  height: 55rem;
+  background: #f9fafba8;
+  border-radius: 50%;
+  z-index: -1;
+  top: -301px;
+  left: -407px;
+  position: absolute;
+  border: 18px solid #0d6efd05;
+}
+/* ------ Banner section styles ends ----- */
+
+/* ---- main content styles---- */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+}
+.tab-pane {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: var(--mg-2);
+}
+
+/* .nav-link{
+  background: lightgrey !important;
+  color: #000000a6;
+  margin-right: 1rem;
+}
+.nav-link:active{
+  background: var(--clr-primary);
+} */
+
+.nav-link {
+  color: #000000a6;
+  font-weight: 400;
+}
+
+.mainContent__card {
+  width: 292px;
+  height: 338px;
+  border-radius: 10px;
+  /* border: 1px solid coral */
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  margin-bottom: var(--mg-2);
+  overflow: hidden;
+}
+.mainContent__cardimg {
+  height: 50%;
+  width: 100%;
+}
+.mainContent__cardimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mainContent__cardBottom {
+  padding: 1rem;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mainContent__cardTitle p {
+  font-size: var(--font-small);
+  font-weight: 500;
+}
+#date-posted {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#date-posted #date,
+#views {
+  font-size: var(--font-smaller);
+  color: var(--clr-text-alt);
+  font-weight: 200;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+#views img {
+  width: 1rem;
+  height: 1rem;
+}
+/* ---- main content styles ends---- */
+
+
+
+/* ----- Post detail styles ----- */
+.postDetail__header{
+  width: 100%;
+  max-width: 992px;
+  height: 25rem;
+  overflow: hidden; 
+  margin: auto;
+}
+.postDetail__header img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.postDetail__title{
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+}
+.postDetail__date{
+  color: var(--clr-secondary);
+  font-size: var(--font-small);
+  text-align: center;
+}
+.postDetail__mainTitle{
+  font-size: 60px;
+  font-weight: 600;
+  text-align: center;
+}
+.postDetail__content{
+  font-size: var(--font-small);
+  color: var(--clr-text-alt);
+  margin-bottom: var(--mg-large);
+  max-width: 992px;
+  margin: auto;
+}
+.postDetail__content p::first-letter{
+  margin-left: 3rem;
+}
+/* ----- Post detail styles ends----- */

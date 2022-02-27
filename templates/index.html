@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Blog</title>
+{% endblock %}
+
+
+{% block content %}
+  <div class="container">
+    <section class="banner row">
+      <div class="banner__intro col-6">
+        <h3>Inspire Others by your writings</h3>
+        <p>Start by writing a blog</p>
+        <a href="new-post.html" class="bg--primary">Create Post</a>
+        <div class="banner__bg"></div>
+      </div>
+      <div class="banner__img col-6">
+        <img class="img-fluid" src="{{url_for('static', filename="images/Blog post.gif")}}" alt="" />
+      </div>
+    </section>
+    <main class="mainContent">
+      <h3 class="title">Blog</h3>
+
+
+      <!-- Tabbed content -->
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="pills-allPost-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-allPost"
+            type="button"
+            role="tab"
+            aria-controls="pills-allPost"
+            aria-selected="true"
+          >
+            All Post
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-webDev-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-webDev"
+            type="button"
+            role="tab"
+            aria-controls="pills-webDev"
+            aria-selected="false"
+          >
+            Web Development
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-techTrends-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-techTrends"
+            type="button"
+            role="tab"
+            aria-controls="pills-techTrends"
+            aria-selected="false"
+          >
+            Tech Trends
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="pills-allPost"
+          role="tabpanel"
+          aria-labelledby="pills-allPost-tab"
+        >
+            <!-- Post card-->
+            <div class="mainContent__card">
+              <div class="mainContent__cardimg">
+                <a href="templates/detail.html">
+                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
+                </a>
+              </div>
+              <div class="mainContent__cardBottom">
+                <div class="mainContent__cardTitle">
+                  <a href="templates/detail.html">
+                    <p>Introduction to Web technologies</p>
+                  </a>
+                </div>
+                <div id="date-posted">
+                  <p id="date">24/02/2022</p>
+                  <p id="views">
+                    <span>
+                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
+                    </span>23</p>
+                </div>  
+              </div>
+            </div>
+            <!--  Post card ends -->
+            <!--- Post card -->
+            <div class="mainContent__card">
+              <div class="mainContent__cardimg">
+                <a href="templates/detail.html">
+                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
+                </a>
+              </div>
+              <div class="mainContent__cardBottom">
+                <div class="mainContent__cardTitle">
+                  <a href="templates/detail.html">
+                    <p>Introduction to Web technologies</p>
+                  </a>
+                </div>
+                <div id="date-posted">
+                  <p id="date">24/02/2022</p>
+                  <p id="views">
+                    <span>
+                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
+                    </span>23</p>
+                </div>  
+              </div>
+            </div>
+            <!-- Post card ends ->
+            <!- Post card -->
+            <div class="mainContent__card">
+              <div class="mainContent__cardimg">
+                <a href="templates/detail.html">
+                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
+                </a>
+              </div>
+              <div class="mainContent__cardBottom">
+                <div class="mainContent__cardTitle">
+                  <a href="templates/detail.html">
+                    <p>Introduction to Web technologies</p>
+                  </a>
+                </div>
+                <div id="date-posted">
+                  <p id="date">24/02/2022</p>
+                  <p id="views">
+                    <span>
+                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
+                    </span>23</p>
+                </div>  
+              </div>
+            </div>
+            <!-- Post card ends -->
+          
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-webDev"
+          role="tabpanel"
+          aria-labelledby="pills-webDev-tab"
+        >
+          Web Development
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-techTrends"
+          role="tabpanel"
+          aria-labelledby="pills-techTrends-tab"
+        >
+          Tech Trends
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}
