@@ -6,16 +6,17 @@
 
 
 {% block content %}
+
 <header class="postDetail__header container">
-    <img src="images/gamedev.png" alt="">
+    <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="">
 </header>
 <div class="container">
     <section class="postDetail__title">
         <div class="postDetail__date">
-            <p>February 25, 2022</p>
+            <p>{{ post.date_created.date() }}</p>
         </div>
         <div class="postDetial__mainTitle">
-            <h2>Introduction to Web Technologies<h2>
+            <h2>{{post.title}}<h2>
         </div>
     </section>
     <main class="postDetail__content mb-5">
@@ -29,4 +30,5 @@ What Is Included In The Web Development Fundamentals Course?
 The Web Development Fundamentals course is broken down into three specific modules, each of which is geared toward introducing everything you need to know about web development into manageable, “bite-sized” chunks to make progressing through your learning easy, efficient, and exciting. Here’s what you can expect in each:</p>
     </main>
 </div>
+
 {% endblock%}

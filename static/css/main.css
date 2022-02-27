@@ -13,6 +13,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 100%;
   /* background: #f9fafb; */
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -274,3 +275,25 @@ nav {
   margin-left: 3rem;
 }
 /* ----- Post detail styles ends----- */
+
+
+/* ---- New Post styles------ */
+.newPost__title h3{
+  font-size: var(--font-medium);
+  font-weight: 600;
+  margin-bottom: var(--mg-1);
+}
+
+.form-group{
+  margin-bottom: 1rem;
+}
+.submit-btn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: var(--mg-0);
+}
+textarea{
+  height: 10rem;
+}
+/* ---- New Post styles ends------ */

@@ -18,7 +18,7 @@
         <img class="img-fluid" src="{{url_for('static', filename="images/Blog post.gif")}}" alt="" />
       </div>
     </section>
-    <main class="mainContent">
+    <main class="mainContent" id="blog">
       <h3 class="title">Blog</h3>
 
 
@@ -81,13 +81,13 @@
 
             <div class="mainContent__card">
               <div class="mainContent__cardimg">
-                <a href="templates/detail.html">
+                <a href="/{{post.id}}">
                   <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
                 </a>
               </div>
               <div class="mainContent__cardBottom">
                 <div class="mainContent__cardTitle">
-                  <a href="templates/detail.html">
+                  <a href="/{{post.id}}">
                     <p>{{ post.title }}</p>
                   </a>
                 </div>
@@ -96,7 +96,7 @@
                   <p id="views">
                     <span>
                       <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
-                    </span>23</p>
+                    </span>{{post.author}}</p>
                 </div>  
               </div>
             </div>
@@ -118,13 +118,13 @@
 
             <div class="mainContent__card">
               <div class="mainContent__cardimg">
-                <a href="templates/detail.html">
+                <a href="/{{post.id}}">
                   <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
                 </a>
               </div>
               <div class="mainContent__cardBottom">
                 <div class="mainContent__cardTitle">
-                  <a href="templates/detail.html">
+                  <a href="/{{post.id}}">
                     <p>{{ post.title }}</p>
                   </a>
                 </div>
@@ -133,7 +133,7 @@
                   <p id="views">
                     <span>
                       <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
-                    </span>23</p>
+                    </span>{{post.author}}</p>
                 </div>  
               </div>
             </div>
@@ -152,13 +152,13 @@
 
             <div class="mainContent__card">
               <div class="mainContent__cardimg">
-                <a href="templates/detail.html">
+                <a href="/{{post.id}}">
                   <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
                 </a>
               </div>
               <div class="mainContent__cardBottom">
                 <div class="mainContent__cardTitle">
-                  <a href="templates/detail.html">
+                  <a href="/{{post.id}}">
                     <p>{{ post.title }}</p>
                   </a>
                 </div>
@@ -167,7 +167,7 @@
                   <p id="views">
                     <span>
                       <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
-                    </span>23</p>
+                    </span>{{post.author}}</p>
                 </div>  
               </div>
             </div>
