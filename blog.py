@@ -1,7 +1,7 @@
 from email.policy import default
 from unicodedata import category
 from datetime import datetime
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
 
@@ -54,21 +54,17 @@ def newPost():
         content = request.form['content']
         author = request.form['author']
         image = request.form['image']
+        image_path = url_for('static', filename="post-images/" + image)
         
+        # image.save(image_path)
 
         new_post = Post(category_id=category_id, image_file=image, title=title, content=content,  author=author )
     
         db.session.add(new_post)
         db.session.commit()
         
-        print("post created sucessfully...")
+        print("post created successfully...")
         
-        # if request.form['image']:
-        # else: 
-        #     new_post = Post(category=category, title=title, content=content,  author=author )
-            
-        #     db.session.add(new_post)
-        #     db.session.commit()
         return redirect('/')
     
     return render_template('new-post.html')
