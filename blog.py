@@ -22,14 +22,13 @@ class Category(db.Model):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    content = db.Column(db.Text, nullable=False)
-    author = db.Column(db.String(50), nullable=False)
+    content_link = db.Column(db.Text, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
-    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    # date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    date_posted = db.Column(db.Text, nullable=False)
     
     def __repr__(self):
-        return f"Post('{self.title}', '{self.author}')"
+        return f"Post('{self.title}', '{self.id}')"
 
 
 
@@ -52,13 +51,9 @@ def newPost():
         category_id = int(request.form['categoriesOption'])
         title = request.form['title']
         content = request.form['content']
-        author = request.form['author']
-        image = request.form['image']
-        image_path = url_for('static', filename="post-images/" + image)
+        date_posted = datetime.utcnow
         
-        # image.save(image_path)
-
-        new_post = Post(category_id=category_id, image_file=image, title=title, content=content,  author=author )
+        new_post = Post(category_id=category_id, title=title, content=content, date_posted = date_posted) )
     
         db.session.add(new_post)
         db.session.commit()

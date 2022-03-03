@@ -1,184 +1,205 @@
-{% extends 'base.html' %}
-
-{% block title %}
+{% extends 'base.html' %} {% block title %}
 <title>Blog</title>
-{% endblock %}
+{% endblock %} {% block content %}
+<div class="container">
+  <section class="banner row">
+    <div class="banner__intro col-6">
+      <h3>Inspire Others by your writings</h3>
+      <p>Start by writing a blog</p>
+      <a href="{{url_for('newPost')}}" class="bg--primary">Create Post</a>
+      <div class="banner__bg"></div>
+    </div>
+    <div class="banner__img col-6">
+      <img class="img-fluid" src="{{url_for('static', filename="images/Blog post.gif")}}" alt="" />
+    </div>
+  </section>
+  <main class="mainContent" id="blog">
+    <h3 class="title">Blog</h3>
 
-
-{% block content %}
-  <div class="container">
-    <section class="banner row">
-      <div class="banner__intro col-6">
-        <h3>Inspire Others by your writings</h3>
-        <p>Start by writing a blog</p>
-        <a href="{{url_for('newPost')}}" class="bg--primary">Create Post</a>
-        <div class="banner__bg"></div>
-      </div>
-      <div class="banner__img col-6">
-        <img class="img-fluid" src="{{url_for('static', filename="images/Blog post.gif")}}" alt="" />
-      </div>
-    </section>
-    <main class="mainContent" id="blog">
-      <h3 class="title">Blog</h3>
-
-
-      <!-- Tabbed content -->
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link active"
-            id="pills-allPost-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-allPost"
-            type="button"
-            role="tab"
-            aria-controls="pills-allPost"
-            aria-selected="true"
-          >
-            All Post
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="pills-webDev-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-webDev"
-            type="button"
-            role="tab"
-            aria-controls="pills-webDev"
-            aria-selected="false"
-          >
-            Web Development
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="pills-techTrends-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-techTrends"
-            type="button"
-            role="tab"
-            aria-controls="pills-techTrends"
-            aria-selected="false"
-          >
-            Tech Trends
-          </button>
-        </li>
-      </ul>
-
-      <!-- Tab Content -->
-      <div class="tab-content" id="pills-tabContent">
-        <div
-          class="tab-pane fade show active"
-          id="pills-allPost"
-          role="tabpanel"
-          aria-labelledby="pills-allPost-tab"
+    <!-- Tabbed content -->
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="pills-allPost-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-allPost"
+          type="button"
+          role="tab"
+          aria-controls="pills-allPost"
+          aria-selected="true"
         >
-            <!-- Post card-->
-            {% for post in posts %}
-
-            <div class="mainContent__card">
-              <div class="mainContent__cardimg">
-                <a href="/{{post.id}}">
-                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
-                </a>
-              </div>
-              <div class="mainContent__cardBottom">
-                <div class="mainContent__cardTitle">
-                  <a href="/{{post.id}}">
-                    <p>{{ post.title }}</p>
-                  </a>
-                </div>
-                <div id="date-posted">
-                  <p id="date">{{ post.date_created.date() }}</p>
-                  <p id="views">
-                    <span>
-                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
-                    </span>{{post.author}}</p>
-                </div>  
-              </div>
-            </div>
-
-            {% endfor %}
-            <!--  Post card ends -->
-            
-          
-        </div>
-        <div
-          class="tab-pane fade"
-          id="pills-webDev"
-          role="tabpanel"
-          aria-labelledby="pills-webDev-tab"
+          All Post
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="pills-webDev-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-webDev"
+          type="button"
+          role="tab"
+          aria-controls="pills-webDev"
+          aria-selected="false"
         >
+          Tech Trends
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="pills-techTrends-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-techTrends"
+          type="button"
+          role="tab"
+          aria-controls="pills-techTrends"
+          aria-selected="false"
+        >
+          Trending News
+        </button>
+      </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="pills-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="pills-allPost"
+        role="tabpanel"
+        aria-labelledby="pills-allPost-tab"
+      >
         <!-- Post card-->
-        
-            {% for post in categories[1].posts %}
+        {% for post in posts %}
 
-            <div class="mainContent__card">
-              <div class="mainContent__cardimg">
-                <a href="/{{post.id}}">
-                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
-                </a>
-              </div>
-              <div class="mainContent__cardBottom">
-                <div class="mainContent__cardTitle">
-                  <a href="/{{post.id}}">
-                    <p>{{ post.title }}</p>
-                  </a>
-                </div>
-                <div id="date-posted">
-                  <p id="date">{{ post.date_created.date() }}</p>
-                  <p id="views">
-                    <span>
-                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
-                    </span>{{post.author}}</p>
-                </div>  
-              </div>
+        <div class="mainContent__card">
+          <div class="mainContent__cardimg">
+            <a href="/{{post.id}}">
+              <img src="{{url_for('static', filename="images/webdevimg.png")}}"
+              alt="" />
+            </a>
+          </div>
+          <div class="mainContent__cardBottom">
+            <div class="mainContent__cardTitle">
+              <a href="/{{post.id}}">
+
+                <!-- get post title logic-->
+                {% if post.title|length > 50 %}
+                <p>{{ post.title[0:51] + "..."}}</p>
+                {% else %}
+                <p>{{ post.title }}</p>
+                {% endif %}
+
+              </a>
             </div>
-
-            {% endfor %}
-        <!--  Post card ends -->  
-        </div>
-        <div
-          class="tab-pane fade"
-          id="pills-techTrends"
-          role="tabpanel"
-          aria-labelledby="pills-techTrends-tab"
-        >
-          <!-- Post card-->
-            {% for post in categories[2].posts %}
-
-            <div class="mainContent__card">
-              <div class="mainContent__cardimg">
-                <a href="/{{post.id}}">
-                  <img src="{{url_for('static', filename="images/webdevimg.png")}}" alt="" />
-                </a>
-              </div>
-              <div class="mainContent__cardBottom">
-                <div class="mainContent__cardTitle">
-                  <a href="/{{post.id}}">
-                    <p>{{ post.title }}</p>
-                  </a>
-                </div>
-                <div id="date-posted">
-                  <p id="date">{{ post.date_created.date() }}</p>
-                  <p id="views">
-                    <span>
-                      <img src="{{url_for('static', filename="images/view-icon.png")}}" alt="">
-                    </span>{{post.author}}</p>
-                </div>  
-              </div>
+            <div id="date-posted">
+              <p id="date">{{ post.date_posted }}</p>
+              <p id="views">
+                <span>
+                  <img src="{{url_for('static',
+                  filename="images/view-icon.png")}}" alt=""> </span
+                >Ernest
+              </p>
             </div>
-
-            {% endfor %}
-            <!--  Post card ends -->
+          </div>
         </div>
+
+        {% endfor %}
+        <!--  Post card ends -->
       </div>
-      <!-- Content area ends -->
-      
-    </main>
-  </div>
+      <div
+        class="tab-pane fade"
+        id="pills-webDev"
+        role="tabpanel"
+        aria-labelledby="pills-webDev-tab"
+      >
+        <!-- Post card-->
+
+        {% for post in categories[0].posts %}
+
+        <div class="mainContent__card">
+          <div class="mainContent__cardimg">
+            <a href="/{{post.id}}">
+              <img src="{{url_for('static', filename="images/webdevimg.png")}}"
+              alt="" />
+            </a>
+          </div>
+          <div class="mainContent__cardBottom">
+            <div class="mainContent__cardTitle">
+              <a href="/{{post.id}}">
+
+                <!-- get post title logic-->
+                {% if post.title|length > 50 %}
+                <p>{{ post.title[0:51] + "..."}}</p>
+                {% else %}
+                <p>{{ post.title }}</p>
+                {% endif %}
+
+              </a>
+            </div>
+            <div id="date-posted">
+              <p id="date">{{ post.date_posted }}</p>
+              <p id="views">
+                <span>
+                  <img src="{{url_for('static',
+                  filename="images/view-icon.png")}}" alt=""> </span
+                >Ernest
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+        <!--  Post card ends -->
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-techTrends"
+        role="tabpanel"
+        aria-labelledby="pills-techTrends-tab"
+      >
+        <!-- Post card-->
+        {% for post in categories[1].posts %}
+
+        <div class="mainContent__card">
+          <div class="mainContent__cardimg">
+            <a href="/{{post.id}}">
+              <img src="{{url_for('static', filename="images/webdevimg.png")}}"
+              alt="" />
+            </a>
+          </div>
+          <div class="mainContent__cardBottom">
+            <div class="mainContent__cardTitle">
+              <a href="/{{post.id}}">
+
+                <!-- get post title logic-->
+                {% if post.title|length > 50 %}
+                <p>{{ post.title[0:51] + "..."}}</p>
+                {% else %}
+                <p>{{ post.title }}</p>
+                {% endif %}
+
+              </a>
+            </div>
+            <div id="date-posted">
+              <p id="date">{{ post.date_posted }}</p>
+              <p id="views">
+                <span>
+                  <img src="{{url_for('static',
+                  filename="images/view-icon.png")}}" alt=""> </span
+                >Ernest
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+        <!--  Post card ends -->
+      </div>
+    </div>
+    <!-- Content area ends -->
+  </main>
+</div>
 
 {% endblock %}

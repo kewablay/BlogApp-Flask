@@ -14,6 +14,8 @@ body {
   font-size: 100%;
   /* background: #f9fafb; */
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  padding-bottom: 4rem;
 }
 
 :root {
@@ -78,7 +80,7 @@ nav {
   margin-bottom: var(--mg-large);
   padding: 1rem 0;
 }
-.nav__brand  a {
+.nav__brand a {
   color: black;
   font-size: var(--font-medium);
   font-weight: 600;
@@ -132,9 +134,8 @@ nav {
   padding: 0.6rem 0.9rem;
   border-radius: 5px;
 }
-.banner__intro a:hover{
+.banner__intro a:hover {
   color: white;
-  
 }
 .banner__bg {
   width: 55rem;
@@ -162,12 +163,12 @@ nav {
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: var(--mg-2);
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 .fade:not(.show) {
-    opacity: 0;
-    /* display: none !important; */
-    height: 0;
+  opacity: 0;
+  /* display: none !important; */
+  height: 0;
 }
 /* .nav-link{
   background: lightgrey !important;
@@ -188,7 +189,8 @@ nav {
   height: 338px;
   border-radius: 10px;
   /* border: 1px solid coral */
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
   margin-bottom: var(--mg-2);
   overflow: hidden;
 }
@@ -231,69 +233,79 @@ nav {
 }
 /* ---- main content styles ends---- */
 
-
-
 /* ----- Post detail styles ----- */
-.postDetail__header{
+.postDetail__header {
   width: 100%;
   max-width: 992px;
   height: 25rem;
-  overflow: hidden; 
+  overflow: hidden;
   margin: auto;
 }
-.postDetail__header img{
+.postDetail__header img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
 }
-.postDetail__title{
+.postDetail__title {
   margin: 1.5rem 0;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
-.postDetail__date{
+.postDetail__title #title{
+  max-width: 992px !important;
+}
+.postDetail__date {
   color: var(--clr-secondary);
   font-size: var(--font-small);
   text-align: center;
 }
-.postDetail__mainTitle{
+.postDetail__mainTitle {
   font-size: 60px;
   font-weight: 600;
   text-align: center;
+  max-width: 992px;
 }
-.postDetail__content{
+.postDetail__content {
   font-size: var(--font-small);
   color: var(--clr-text-alt);
   margin-bottom: var(--mg-large);
   max-width: 992px;
   margin: auto;
 }
-.postDetail__content p::first-letter{
+.postDetail__content p::first-letter {
   margin-left: 3rem;
+}
+
+.postDetail__content a {
+  padding: var(--mg-0);
+  background: var(--clr-primary);
+  border-radius: 10px;
+  color: white;
+  font-weight: 400;
+  margin-bottom: 5rem;
 }
 /* ----- Post detail styles ends----- */
 
-
 /* ---- New Post styles------ */
-.newPost__title h3{
+.newPost__title h3 {
   font-size: var(--font-medium);
   font-weight: 600;
   margin-bottom: var(--mg-1);
 }
 
-.form-group{
+.form-group {
   margin-bottom: 1rem;
 }
-.submit-btn{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: var(--mg-0);
+.submit-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: var(--mg-0);
 }
-textarea{
+textarea {
   height: 10rem;
 }
 /* ---- New Post styles ends------ */
