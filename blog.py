@@ -53,7 +53,7 @@ def newPost():
         content = request.form['content']
         date_posted = datetime.utcnow
         
-        new_post = Post(category_id=category_id, title=title, content=content, date_posted = date_posted) )
+        new_post = Post(category_id=category_id, title=title, content=content, date_posted = date_posted)
     
         db.session.add(new_post)
         db.session.commit()

@@ -2,14 +2,14 @@
 <title>Blog</title>
 {% endblock %} {% block content %}
 <div class="container">
-  <section class="banner row">
-    <div class="banner__intro col-6">
+  <section class="banner row flex-sm-column-reverse flex-md-row">
+    <div class="banner__intro col-12 col-md-6">
       <h3>Inspire Others by your writings</h3>
       <p>Start by writing a blog</p>
       <a href="{{url_for('newPost')}}" class="bg--primary">Create Post</a>
       <div class="banner__bg"></div>
     </div>
-    <div class="banner__img col-6">
+    <div class="banner__img col-12 col-md-6">
       <img class="img-fluid" src="{{url_for('static', filename="images/Blog post.gif")}}" alt="" />
     </div>
   </section>
