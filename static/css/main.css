@@ -310,3 +310,8 @@ textarea {
   height: 10rem;
 }
 /* ---- New Post styles ends------ */
+
+
+@media screen (max-width: 560px){
+  
+}
