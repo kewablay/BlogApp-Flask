@@ -313,5 +313,8 @@ textarea {
 
 
 @media screen (max-width: 576px){
-
+.banner__intro {
+  align-items: center;
+  text-align: center;
+}
 }
