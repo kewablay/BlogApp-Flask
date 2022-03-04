@@ -1,14 +1,21 @@
 from flask import Flask
+import unittest
 
-from app import home
+from app import app
 
 
-def test_base_route():
-    app = Flask(__name__)
-    home()
-    client = app.test_client()
-    url = '/'
+class FlaskTestCase(unittest.TestCase):
+    def test_index(self):
+        tester = app.test_client(self)
+        response = tester.get('/', content_type='html/text')
+        self.assertEqual(response.status_code, 200)
 
-    response = client.get(url)
-    assert response.get_data()
-    assert response.status_code == 200
+    
+    def test_index_loads(self):
+        tester = app.test_client(self)
+        response = tester.get('/', content_type='html/text')
+        self.assertFalse(b'Blog post Loaded' in response.data)
+
+
+if __name__ == '__main__':
+    unittest.main()
