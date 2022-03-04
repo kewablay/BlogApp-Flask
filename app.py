@@ -8,6 +8,7 @@ from sqlalchemy import ForeignKey
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 db = SQLAlchemy(app)
+server = app.server
 
 
 class Category(db.Model):
